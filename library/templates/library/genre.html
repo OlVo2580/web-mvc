@@ -1,0 +1,14 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <div class="genres-container">
+        <ul class="genre-list">
+            {% for genre in genres %}
+                <li>
+                    <h4><a href="{% url 'genre_editions' genre.id %}">{{ genre.name }}</a></h4>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

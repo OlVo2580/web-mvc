@@ -1,0 +1,14 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    {{ subject }}
+    <ul>
+        {% for subject in subjects %}
+            <li>
+                <h4><a href="{% url 'subject_editions' subject.id %}">{{ subject.name }}</a></h4>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+{% endblock %}

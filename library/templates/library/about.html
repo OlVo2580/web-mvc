@@ -1,0 +1,33 @@
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <ul>
+        {% for edition, status in editions.items %}
+            <li>
+                <h2>{{ edition.name }}</h2>
+                {% if status %}
+                    <p class="status"> {{ status.name }}</p>
+                    <a href="{% url 'change_status' edition.id %}" class="details-link">Змінити статус</a>
+                {% else %}
+                    <p class="status">Статус невідомий</p>
+                {% endif %}
+                <a href="{% url 'abstract' edition.id %}" class="details-link">Детальніше</a>
+            </li>
+            {% if not forloop.last %}
+                <hr>
+            {% endif %}
+        {% endfor %}
+         <!-- Додати посилання на сторінку додавання видання -->
+         <h2 style="text-align: right;">
+            <a href="{% url 'addedition' %}">
+                <button type="submit" class="button">Додати видання</button>
+            </a>
+        </h2>
+    </ul>
+{% endblock %}

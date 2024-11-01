@@ -1,0 +1,14 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+{{ author }}
+<ul>
+    {% for work in works %}
+        <li>
+            <h4><a href="{% url 'abstract' work.edition.id %}">{{ work.edition.name }}</a></h4>
+        </li>
+        <hr>
+    {% endfor %}
+</ul>
+{% endblock %}

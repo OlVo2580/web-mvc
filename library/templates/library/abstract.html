@@ -1,0 +1,7 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h1>Анотація до видання "{{ edition.name }}"</h1>
+    <p>Статус: <span class="status">{{ edition.status }}</span></p>
+    <p>Анотація: {{ edition.abstract }}</p>
+{% endblock %}

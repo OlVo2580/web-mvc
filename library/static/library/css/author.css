@@ -1,0 +1,38 @@
+/* Стилі для контейнера авторів */
+.authors-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Стилі для кожної колонки авторів */
+.author-column {
+    flex: 1;
+}
+
+/* Стилі для інформації про автора */
+.author-info {
+    bottom: 20px;
+}
+
+/* Стилі для кнопки "Показати твори" */
+.show-works-btn {
+    background-color: #954caf;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.show-works-btn:hover {
+    background-color: #954caf;
+   
+}
+
+/* Стилі для розмежування */
+.separator {
+    border-left: 2px dashed #999;
+    margin: 0 20px;
+}
+
+

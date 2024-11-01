@@ -1,0 +1,14 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h1>{{ genre.name }}</h1>
+    <ul>
+        {% for edition in editions %}
+            <li><a href="{% url 'abstract' edition.id %}">{{ edition.name }}</a> - 
+                {% for author in edition.editionsauthors_set.all %}
+                    {{ author.author }}
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

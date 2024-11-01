@@ -1,0 +1,12 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h1>Ви впевнені, що хочете видалити цього автора?</h1>
+    <p>{{ author.name }}</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit">Так, видалити</button>
+        <a href="{% url 'author' %}">Скасувати</a>
+    </form>
+{% endblock %}
+

@@ -1,0 +1,39 @@
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <ul>
+        {% for author in authors %}
+            <li>
+                <h2>{{ author.first_name }} {{author.last_name}}</h2>
+                <p>Країна: {{ author.country }}</p>
+                <a href="{% url 'author_edition' author.id %}">
+                    <button type="button" class="button">Переглянути твори автора</button>
+                </a>
+                <!-- Додайте кнопку для редагування інформації про автора -->
+                <a href="{% url 'update_author' author.id %}">
+                    <button type="button" class="button">Оновити інформацію про автора</button>
+                </a>
+                <!-- Додайте кнопку для видалення автора -->
+                <form action="{% url 'delete_author' author.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" onclick="return confirm('Ви впевнені, що хочете видалити цього автора?')">Видалити автора</button>
+                </form>
+            </li>
+            {% if not forloop.last %}
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <!-- Додати посилання на сторінку додавання автора -->
+    <h2 style="text-align: right;">
+        <a href="{% url 'addauthor' %}">
+            <button type="button" class="button">Додати автора</button>
+        </a>
+    </h2>
+{% endblock %}

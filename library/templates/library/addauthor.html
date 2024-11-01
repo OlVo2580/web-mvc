@@ -1,0 +1,22 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+
+    <form action="{% url 'addauthor' %}" method="post">
+        {% csrf_token %}
+        
+        {% for field in form %}
+            <div class="form-fields">
+                {{ field.label_tag }}
+                {{ field }}
+            </div>
+        {% endfor %}
+        
+        <button type="submit">Додати</button>
+    </form>
+
+    <a href="{% url 'author' %}">
+        <button>Повернутися до списку авторів</button>
+    </a>
+{% endblock %}

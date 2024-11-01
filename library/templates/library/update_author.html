@@ -1,0 +1,10 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h1>Оновлення інформації про автора</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Оновити</button>
+    </form>
+{% endblock %}

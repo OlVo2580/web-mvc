@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <!-- Підключення стилів CSS -->
+    <link type="text/css" href="{% static 'library/css/styles.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'library/css/author.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'library/css/subject.css' %}" rel="stylesheet"/>
+    <!-- Підключення шрифтів (за необхідності) -->
+        <!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> -->
+    <link href="styles.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <header>
+        <h1>Кафедральна бібліотека</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Головна</a></li>
+                <li><a href="/about">Фонд кафедральної бібліотеки</a></li>
+                <li><a href="/author">Автори</a></li>
+                <li><a href="/subject">Тематики</a></li>
+                <li><a href="/genre">Жанри</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>Лабораторна робота студентки групи К-27 Волошиної Олександри</p>
+    </footer>
+</body>
+</html>
